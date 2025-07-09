@@ -1,15 +1,15 @@
+// WelcomePage.jsx
+
 import React, { useState, useEffect } from 'react';
 
 const WelcomePage = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
-    // Update the time every second
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
 

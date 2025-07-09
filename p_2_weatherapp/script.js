@@ -1,4 +1,5 @@
-// Hardcoded weather data for specific cities
+// script.js
+
 const weatherData = {
   "ahmedabad": "25°C, Sunny",
   "surat": "18°C, Cloudy",

@@ -1,3 +1,5 @@
+// script.js
+
 const votes = {
   'JavaScript': 0,
   'Python': 0,
