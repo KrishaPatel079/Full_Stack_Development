@@ -16,8 +16,8 @@ body {
   border: 2px solid #b86301;
 }
 
-.app h1{
-  color:#8b4b02;
+.app h1 {
+  color: #8b4b02;
 }
 
 .input-section {
@@ -31,7 +31,7 @@ body {
   flex: 1;
   padding: 10px;
   font-size: 1rem;
-  background-color: #e2ba8c;
+  background-color: #f9e5cc;
   border: 1px solid #e0a45f;
   border-radius: 6px;
 }
@@ -44,6 +44,23 @@ body {
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-section input,
+.filter-section select {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #b86301;
+  background-color: #f9e5cc;
 }
 
 .task-list {
@@ -59,11 +76,10 @@ body {
   border: 1px solid #b86301;
   border-radius: 6px;
   margin-bottom: 8px;
-  cursor: pointer;
+  align-items: center;
 }
 
 .task-list li.completed span {
-  text-decoration: line-through;
   color: gray;
 }
 
@@ -72,5 +88,23 @@ body {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  margin-right: 2px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #b86301;
+  cursor: pointer;
+}
+
+.task-list li div {
+  display: flex;
+  gap: 4px;
 }

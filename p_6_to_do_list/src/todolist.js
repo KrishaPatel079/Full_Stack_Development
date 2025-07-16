@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import './App.css'; 
+import './App.css';
 
 function TodoList() {
   const [task, setTask] = useState('');
   const [tasks, setTasks] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filter, setFilter] = useState('all'); 
 
   const handleAddOrSave = () => {
     if (task.trim() === '') return;
 
     if (editingIndex !== null) {
-      setTasks(
-        tasks.map((t, i) => (i === editingIndex ? { ...t, text: task } : t))
-      );
+      setTasks(tasks.map((t, i) => (i === editingIndex ? { ...t, text: task } : t)));
       setEditingIndex(null);
       setTask('');
       return;
@@ -24,7 +24,6 @@ function TodoList() {
 
   const handleDeleteTask = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
-
     if (index === editingIndex) {
       setEditingIndex(null);
       setTask('');
@@ -32,11 +31,7 @@ function TodoList() {
   };
 
   const toggleComplete = (index) => {
-    setTasks(
-      tasks.map((t, i) =>
-        i === index ? { ...t, completed: !t.completed } : t
-      )
-    );
+    setTasks(tasks.map((t, i) => (i === index ? { ...t, completed: !t.completed } : t)));
   };
 
   const startEditing = (index) => {
@@ -48,6 +43,19 @@ function TodoList() {
     setEditingIndex(null);
     setTask('');
   };
+
+  const filteredTasks = tasks.filter((t) => {
+  const matchesSearch = t.text.toLowerCase().includes(searchQuery.toLowerCase());
+
+  if (searchQuery.trim() !== '') {
+    return matchesSearch;
+  }
+
+  if (filter === 'completed') return t.completed;
+  if (filter === 'incomplete') return !t.completed;
+  return true;
+});
+
 
   return (
     <div className="app">
@@ -70,23 +78,35 @@ function TodoList() {
         )}
       </div>
 
+      <div className="filter-section">
+        <input
+          type="text"
+          placeholder="Search tasks..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="incomplete">Incomplete</option>
+        </select>
+      </div>
+
       <ul className="task-list">
-        {tasks.map((t, index) => (
-          <li
-            key={index}
-            className={t.completed ? 'completed' : ''}
-          >
-            <span onClick={() => toggleComplete(index)}>
-              {t.text}
-            </span>
-
-            <button onClick={() => startEditing(index)} title="Edit">
-              ✏️
-            </button>
-
-            <button onClick={() => handleDeleteTask(index)} title="Delete">
-              🗑️
-            </button>
+        {filteredTasks.map((t, index) => (
+          <li key={index} className={t.completed ? 'completed' : ''}>
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={t.completed}
+                onChange={() => toggleComplete(tasks.indexOf(t))}
+              />
+              <span>{t.text}</span>
+            </label>
+            <div>
+              <button onClick={() => startEditing(tasks.indexOf(t))} title="Edit">✏️</button>
+              <button onClick={() => handleDeleteTask(tasks.indexOf(t))} title="Delete">🗑️</button>
+            </div>
           </li>
         ))}
       </ul>
