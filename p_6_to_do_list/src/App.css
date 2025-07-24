@@ -1,0 +1,110 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #ecd6bc;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  max-width: 400px;
+  margin: 80px auto;
+  background: linear-gradient(to top, #e2ba8c, #e0a45f, #b86301);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 2px solid #b86301;
+}
+
+.app h1 {
+  color: #8b4b02;
+}
+
+.input-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #f9e5cc;
+  border: 1px solid #e0a45f;
+  border-radius: 6px;
+}
+
+.input-section button {
+  padding: 10px 16px;
+  background-color: #b86301;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-section input,
+.filter-section select {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #b86301;
+  background-color: #f9e5cc;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #e2ba8c;
+  border: 1px solid #b86301;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.task-list li.completed span {
+  color: gray;
+}
+
+.task-list li button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #b86301;
+  cursor: pointer;
+}
+
+.task-list li div {
+  display: flex;
+  gap: 4px;
+}

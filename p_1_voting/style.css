@@ -1,0 +1,40 @@
+/* style.ccs */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@400,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    background: rgb(189, 249, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgb(83, 86, 85);
+    text-align: center;
+}
+
+.voting button{
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(29, 206, 150);
+    cursor: pointer;
+}
+
+.votes button:hover{
+    background-color: rgb(25, 173, 126);
+}
+
+.result{
+    font-size: 18px;
+    margin-top: 20px;
+}

@@ -1,0 +1,36 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Voting</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Vote for your favorite language</h1>
+        <div class="voting">
+            <button onclick="vote('JavaScript')">JavaScript</button>
+            <button onclick="vote('Python')">Python</button>
+            <button onclick="vote('Java')">Java</button>
+            <button onclick="vote('C++')">C++</button>
+            <button onclick="vote('C')">C language</button>
+        </div>
+        <h2>Vote Results</h2>
+        <div class="result">
+            <p>JavaScript: <span id="JavaScript">0</span></p>
+            <p>Python: <span id="Python">0</span></p>
+            <p>Java: <span id="Java">0</span></p>
+            <p>C++: <span id="C++">0</span></p>
+            <p>C language: <span id="C">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

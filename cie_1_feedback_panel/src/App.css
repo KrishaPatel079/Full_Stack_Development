@@ -1,0 +1,71 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to left, #ffff, #459ee7, #1244a9);
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.greeting {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #1244a9;
+}
+
+.clock {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.panel, .counter {
+  margin-bottom: 30px;
+}
+
+.panel h3, .counter h3 {
+  margin-bottom: 10px;
+}
+
+.buttons button, .counter button, .form button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #459ee7;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buttons button:hover, .counter button:hover, .form button:hover {
+  background: #1244a9;
+}
+
+.results p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+input {
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form {
+  text-align: center;
+}
