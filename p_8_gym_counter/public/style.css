@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg, #136774, #1a899a, #20a4b8, #2bd4ed);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  text-align: center;
+  background: #fdfdfb;
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: #0c424b 0px 0px 20px;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 5px;
+  color: #1b668b;
+  text-shadow: 0 0 3px #595958;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.counter-card {
+  margin-top: 20px;
+}
+
+.counter-value {
+  font-size: 5em;
+  margin-bottom: 30px;
+  color: #136774;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.neon-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+  background: #20a4b8;
+  box-shadow: 0 5px #1a899a;
+  transition: 0.2s;
+}
+
+.neon-btn:hover {
+  background: #1a899a;
+  transform: scale(1.05);
+}
+
+.reset-btn {
+  padding: 12px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  background: #de4242;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px #ab3232;
+}
+
+.reset-btn:hover {
+  background: #ab3232;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
