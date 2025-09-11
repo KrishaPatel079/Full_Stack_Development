@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tax Form</title>
+  <style>
+    body { font-family: "Gill Sans", "Gill Sans MT", Calibri, Trebuchet MS, sans-serif; margin: 40px; background: #85ffb4;}
+    h2 { font-family: "Gill Sans", "Gill Sans MT", Calibri, Trebuchet MS,sans-serif;  margin: 40px; color: #006427;}
+    label { font-weight: bold; display: block; margin-bottom: 5px; color: #006427;}
+    form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fdf5da; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    input { display: block; width: 95%; margin-bottom: 15px; padding: 8px; border: 1px solid #006427; border-radius: 4px;}
+    button { font-family: "Gill Sans", "Gill Sans MT", Calibri, Trebuchet MS,sans-serif;  background: #018533; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; border-radius: 8px; font-size: 16px; }
+    button:hover { background: #00b244; }
+    .error { font-family: "Gill Sans", "Gill Sans MT", Calibri, Trebuchet MS,sans-serif;  color: red; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Enter Your Income</h2>
+  <form action="/calculate" method="POST">
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+    <label>Income Source 1 (₹):</label>
+    <input type="text" name="income1" required />
+
+    <label>Income Source 2 (₹):</label>
+    <input type="text" name="income2" required />
+
+    <button type="submit">Calculate Total Income</button>
+  </form>
+</body>
+</html>
