@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Resume</title>
+  <style>
+    body { font-family:"Helvetica Neue", Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif; margin: 40px; background: #a5d0ff;}
+      h2 { font-family:"Helvetica Neue", Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif; text-align: center; color: #07407c; }
+      p { font-family:"Helvetica Neue", Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif; text-align: center; color: #5facff; }
+    form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #ffffff; }
+    input[type="file"] { margin-bottom: 15px; }
+    button { background: #07407c; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 6px; }
+    button:hover { background: #0f5db1; }
+    .msg { margin: 10px 0; color: red; }
+  </style>
+</head>
+<body>
+  <h2>Upload Your Resume (PDF only)</h2>
+  <% if (message) { %>
+    <p class="msg"><%= message %></p>
+  <% } %>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="resume" required>
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>
