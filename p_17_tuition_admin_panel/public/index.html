@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎓 Tuition Admin Panel</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #f9fafb;
+      --card-bg: #ffffff;
+      --danger: #dc2626;
+    }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: var(--bg);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    form {
+      background-color: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      width: 90%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    input, button {
+      margin: 8px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #1e3a8a;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      width: 90%;
+      max-width: 600px;
+    }
+    li {
+      background: var(--card-bg);
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .info {
+      flex: 1;
+    }
+    .actions button {
+      background-color: var(--danger);
+      color: white;
+      padding: 6px 12px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .actions button:hover {
+      background-color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+  <header>🎓 Tuition Admin Panel</header>
+
+  <form id="studentForm">
+    <h2>Add Student</h2>
+    <input type="text" id="name" placeholder="Student Name" required />
+    <input type="number" id="age" placeholder="Age" required />
+    <input type="text" id="course" placeholder="Course" required />
+    <input type="number" id="fees" placeholder="Fees" required />
+    <input type="text" id="contact" placeholder="Contact Number" required />
+    <button type="submit">Add Student</button>
+  </form>
+
+  <h2>Student List</h2>
+  <ul id="studentList"></ul>
+
+  <script>
+    const API_URL = "/api/students";
+
+    async function fetchStudents() {
+      const res = await fetch(API_URL);
+      const students = await res.json();
+      const list = document.getElementById("studentList");
+
+      list.innerHTML = students.length
+        ? students.map(s => `
+          <li>
+            <div class="info">
+              <strong>${s.name}</strong> (${s.course})<br>
+              Age: ${s.age} | Fees: ₹${s.fees}<br>
+              Contact: ${s.contact}
+            </div>
+            <div class="actions">
+              <button onclick="deleteStudent('${s._id}')">Delete</button>
+            </div>
+          </li>
+        `).join('')
+        : `<p style="text-align:center;">No students found.</p>`;
+    }
+
+    async function deleteStudent(id) {
+      await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+      fetchStudents();
+    }
+
+    document.getElementById("studentForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const student = {
+        name: document.getElementById("name").value,
+        age: +document.getElementById("age").value,
+        course: document.getElementById("course").value,
+        fees: +document.getElementById("fees").value,
+        contact: document.getElementById("contact").value
+      };
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(student)
+      });
+      e.target.reset();
+      fetchStudents();
+    });
+
+    fetchStudents();
+  </script>
+</body>
+</html>

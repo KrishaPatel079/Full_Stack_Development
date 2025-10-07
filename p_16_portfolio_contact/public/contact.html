@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Contact Me</h1>
+
+    <form id="contactForm" novalidate>
+      <label>
+        Your name
+        <input type="text" id="name" name="name" required minlength="2" />
+      </label>
+
+      <label>
+        Email
+        <input type="email" id="email" name="email" required />
+      </label>
+
+      <label>
+        Message
+        <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
+      </label>
+
+      <button id="submitBtn" type="submit">Submit</button>
+
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
