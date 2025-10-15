@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 50%, #fefce8 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-pastel-pink-500 to-pastel-blue-500 hover:from-pastel-pink-600 hover:to-pastel-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-soft hover:shadow-glow;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-pastel-cream-400 to-pastel-pink-300 hover:from-pastel-cream-500 hover:to-pastel-pink-400 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-soft;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-soft border border-white/20 p-6 transition-all duration-300 hover:shadow-glow;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pastel-pink-300 focus:border-transparent transition-all duration-300 bg-white/80 backdrop-blur-sm;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-pastel-pink-600 to-pastel-blue-600 bg-clip-text text-transparent;
+  }
+  
+  .glass-effect {
+    @apply bg-white/20 backdrop-blur-md border border-white/30;
+  }
+}
+
